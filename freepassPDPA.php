@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Подключение скриптов и стилей
+// Enqueue scripts and styles
 function freepasspdpa_enqueue_scripts() {
-    // Подключаем стили
+    // Enqueue styles
     wp_enqueue_style(
         'freepasspdpa-style',
         plugin_dir_url( __FILE__ ) . 'css/freepasspdpa.css',
@@ -25,7 +25,7 @@ function freepasspdpa_enqueue_scripts() {
         '1.0.0'
     );
 
-    // Подключаем скрипты
+    // Enqueue scripts
     wp_enqueue_script(
         'freepasspdpa-script',
         plugin_dir_url( __FILE__ ) . 'js/freepasspdpa.js',
@@ -34,7 +34,7 @@ function freepasspdpa_enqueue_scripts() {
         true
     );
 
-    // Получаем настройки плагина
+    // Get plugin settings
     $options = get_option( 'freepasspdpa_options' );
     $message = isset( $options['message'] ) ? $options['message'] : __( 'We use cookies to improve your experience on our site. By clicking "Accept", you agree to our Privacy Policy.', 'freepasspdpa' );
     $accept_text = isset( $options['accept_text'] ) ? $options['accept_text'] : __( 'Accept', 'freepasspdpa' );
@@ -42,7 +42,7 @@ function freepasspdpa_enqueue_scripts() {
     $privacy_url = isset( $options['privacy_url'] ) ? $options['privacy_url'] : '/privacy-policy';
     $privacy_text = isset( $options['privacy_text'] ) ? $options['privacy_text'] : __( 'Privacy Policy', 'freepasspdpa' );
 
-    // Передаем данные из PHP в JS
+    // Pass data from PHP to JS
     wp_localize_script(
         'freepasspdpa-script',
         'freepasspdpa_settings',
@@ -57,7 +57,7 @@ function freepasspdpa_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'freepasspdpa_enqueue_scripts' );
 
-// Добавление меню настроек в админ-панель
+// Add the settings menu to the admin panel
 function freepasspdpa_add_admin_menu() {
     add_options_page(
         'Freepass PDPA Settings',
@@ -69,7 +69,7 @@ function freepasspdpa_add_admin_menu() {
 }
 add_action( 'admin_menu', 'freepasspdpa_add_admin_menu' );
 
-// Инициализация настроек
+// Initialize settings
 function freepasspdpa_settings_init() {
     register_setting( 'freepasspdpa_settings', 'freepasspdpa_options' );
 
@@ -80,7 +80,7 @@ function freepasspdpa_settings_init() {
         'freepasspdpa_settings'
     );
 
-    // Поля настроек
+    // Settings fields
     add_settings_field(
         'message',
         __( 'Consent Message', 'freepasspdpa' ),
@@ -123,7 +123,7 @@ function freepasspdpa_settings_init() {
 }
 add_action( 'admin_init', 'freepasspdpa_settings_init' );
 
-// Функции рендеринга полей настроек
+// Settings field render functions
 function freepasspdpa_message_render() {
     $options = get_option( 'freepasspdpa_options' );
     ?>
@@ -159,7 +159,7 @@ function freepasspdpa_privacy_text_render() {
     <?php
 }
 
-// Страница настроек плагина
+// Plugin settings page
 function freepasspdpa_options_page() {
     ?>
     <form action="options.php" method="post">

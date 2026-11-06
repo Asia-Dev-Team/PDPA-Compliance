@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     if (!localStorage.getItem('freepasspdpa_consent')) {
-        // Показываем баннер согласия
+        // Show the consent banner
         var consentBanner = document.createElement('div');
         consentBanner.id = 'freepasspdpa-banner';
         consentBanner.innerHTML = `
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         document.body.appendChild(consentBanner);
 
-        // Обработчики событий для кнопок
+        // Button event handlers
         document.getElementById('freepasspdpa-accept').addEventListener('click', function() {
             localStorage.setItem('freepasspdpa_consent', 'accepted');
             document.getElementById('freepasspdpa-banner').style.display = 'none';
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('freepasspdpa-banner').style.display = 'none';
         });
     } else {
-        // Если пользователь уже дал согласие или отказался, баннер не отображается
+        // Do not show the banner if the user has already accepted or declined
         var banner = document.getElementById('freepasspdpa-banner');
         if (banner) {
             banner.style.display = 'none';

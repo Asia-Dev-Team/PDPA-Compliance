@@ -4,7 +4,7 @@
     width: 100%;
     background-color: #f8f8f8;
     padding: 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15); /* Добавил немного больше тени для визуальной глубины */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for visual depth */
     z-index: 9999;
 }
 
@@ -12,13 +12,13 @@
     max-width: 960px;
     margin: 0 auto;
     text-align: center;
-    font-family: Arial, sans-serif; /* Установил шрифт для согласованности */
+    font-family: Arial, sans-serif; /* Font set for consistency */
 }
 
 .freepasspdpa-content p {
     margin: 0 0 10px;
-    font-size: 15px; /* Немного увеличил шрифт для лучшей читаемости */
-    color: #333; /* Цвет текста более контрастный */
+    font-size: 15px; /* Slightly larger font for readability */
+    color: #333; /* Higher-contrast text color */
     display: inline-block;
 }
 
@@ -28,19 +28,19 @@
 }
 
 .freepasspdpa-content a:hover {
-    color: #005d8f; /* Добавил hover эффект для ссылки */
+    color: #005d8f; /* Link hover effect */
 }
 
 .freepasspdpa-content button {
     background-color: #0073aa;
     color: #fff;
     border: none;
-    padding: 10px 20px; /* Увеличил padding для более удобного нажатия */
-    margin: 0 10px; /* Добавил больше пространства между кнопками */
+    padding: 10px 20px; /* Larger padding for easier tapping */
+    margin: 0 10px; /* More space between buttons */
     cursor: pointer;
     font-size: 14px;
-    border-radius: 5px; /* Сделал кнопки более округлыми для современного стиля */
-    transition: background-color 0.3s ease; /* Плавный переход цвета при наведении */
+    border-radius: 5px; /* Rounder buttons for a modern look */
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .freepasspdpa-content button:hover {
